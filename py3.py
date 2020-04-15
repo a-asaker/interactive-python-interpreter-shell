@@ -8,7 +8,8 @@ if "win" in os.sys.platform :
  colorama.init()
 print()
 
-#Print Date & Time At The Top
+#Print Date & Time At The Top Of The Terminal
+#Not Important, Comment This Section If You Want!
 def terminal_time():
  while 1:
   time.sleep(.25)
