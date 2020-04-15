@@ -9,6 +9,7 @@ if "win" in os.sys.platform :
 print
 
 #Print Date & Time At The Top
+#Not Important, Comment This Section If You Want!
 def terminal_time():
  while 1:
   time.sleep(.25)
