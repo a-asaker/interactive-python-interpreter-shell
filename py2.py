@@ -23,21 +23,23 @@ thr.start()
 cmnd=""
 while cmnd != 'exit':
  try:
-  cmnd=raw_input("\033[0m\nᒯ \033[1;4;33mPy2\033[0mᒬ\n   \033[1;31m ᒻᜭᜭᗎ\033[1;37m ")
-
-  try:
-   if "cd" in cmnd.strip().split():
-    s_cmnd=cmnd.strip().split()
-    path=s_cmnd[s_cmnd.index('cd')+1]
-    os.chdir(path)
-    cmnd=cmnd.replace("cd","")
-    cmnd=cmnd.replace(path,"")
-   print "\033[94m	","",
-   exec(cmnd)
-  except Exception as ex:
-   print "\033[0;96m\r",
-   os.sys.stdout.flush()
-   st_code=os.system(cmnd)
-   print "\033[1;91;107m"+str(ex) if st_code else "",
+  in_cmnd=raw_input("\033[0m\nᒯ \033[1;4;33mPy2\033[0mᒬ\n   \033[1;31m ᒻᜭᜭᗎ\033[1;37m ")
+  cmnds=in_cmnd.split("&&")
+  for cmnd in cmnds:
+   try:
+    cmnd=cmnd.strip()
+    if "cd" in cmnd.strip().split():
+     s_cmnd=cmnd.strip().split()
+     path=s_cmnd[s_cmnd.index('cd')+1]
+     os.chdir(path)
+     cmnd=cmnd.replace("cd","")
+     cmnd=cmnd.replace(path,"")
+    print "\033[94m     ","",
+    exec(cmnd)
+   except Exception as ex:
+    print "\033[0;96m\r",
+    os.sys.stdout.flush()
+    st_code=os.system(cmnd)
+    print "\033[1;91;107m"+str(ex) if st_code else "",
  except : break
 print "\033[0m"
