@@ -21,9 +21,17 @@ threading.Thread(target=terminal_time,daemon=True).start()
 
 #Interactive Interpreter & Shell
 cmnd=""
+multi_line=('for','while','if','with','try','def','class')
 while cmnd != 'exit':
  try:
   in_cmnd=input("\033[0m\n{} \033[1;4;33mPy3\033[0m{}\n   \033[1;31m {}{}{}{}\033[1;37m ".format(chr(5295),chr(5292),chr(5307),chr(5933),chr(5933),chr(5582)))
+  if in_cmnd.strip().startswith(multi_line):
+   in_multi=input("    ===> ")
+   while (in_multi):
+    in_cmnd+=("\n"+in_multi)
+    in_multi=input("    ===> ")
+#   exec(in_cmnd)
+#   continue
   cmnds=in_cmnd.split("&&")
   for cmnd in cmnds:
    try:
