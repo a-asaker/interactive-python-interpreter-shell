@@ -21,9 +21,17 @@ thr.start()
 
 #Interactive Interpreter & Shell
 cmnd=""
+multi_line=('for','while','if','with','try','def','class')
 while cmnd != 'exit':
  try:
   in_cmnd=raw_input("\033[0m\nᒯ \033[1;4;33mPy2\033[0mᒬ\n   \033[1;31m ᒻᜭᜭᗎ\033[1;37m ")
+  if in_cmnd.strip().startswith(multi_line):
+   in_multi=raw_input("    ===> ")
+   while (in_multi):
+    in_cmnd+=("\n"+in_multi)
+    in_multi=raw_input("    ===> ")
+#   exec(in_cmnd)
+#   continue 
   cmnds=in_cmnd.split("&&")
   for cmnd in cmnds:
    try:
